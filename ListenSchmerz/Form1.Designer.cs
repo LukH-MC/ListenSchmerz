@@ -48,11 +48,11 @@
             // 
             this.button_employee.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_employee.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button_employee.Location = new System.Drawing.Point(300, 70);
+            this.button_employee.Location = new System.Drawing.Point(296, 69);
             this.button_employee.Name = "button_employee";
             this.button_employee.Size = new System.Drawing.Size(188, 167);
             this.button_employee.TabIndex = 1;
-            this.button_employee.Text = "Mitareiter/-innen";
+            this.button_employee.Text = "Mitarbeiter/-innen";
             this.button_employee.UseVisualStyleBackColor = true;
             this.button_employee.Click += new System.EventHandler(this.button_employee_Click);
             // 
