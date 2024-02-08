@@ -42,6 +42,7 @@
             this.button_projects.TabIndex = 0;
             this.button_projects.Text = "Projekte verwalten";
             this.button_projects.UseVisualStyleBackColor = true;
+            this.button_projects.Click += new System.EventHandler(this.button_projects_Click);
             // 
             // button_employee
             // 
@@ -53,6 +54,7 @@
             this.button_employee.TabIndex = 1;
             this.button_employee.Text = "Mitareiter/-innen";
             this.button_employee.UseVisualStyleBackColor = true;
+            this.button_employee.Click += new System.EventHandler(this.button_employee_Click);
             // 
             // Form1
             // 
