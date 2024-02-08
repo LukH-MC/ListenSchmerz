@@ -28,13 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.button_projects = new System.Windows.Forms.Button();
+            this.button_employee = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // button_projects
+            // 
+            this.button_projects.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_projects.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.button_projects.Location = new System.Drawing.Point(29, 69);
+            this.button_projects.Name = "button_projects";
+            this.button_projects.Size = new System.Drawing.Size(188, 167);
+            this.button_projects.TabIndex = 0;
+            this.button_projects.Text = "Projekte verwalten";
+            this.button_projects.UseVisualStyleBackColor = true;
+            // 
+            // button_employee
+            // 
+            this.button_employee.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_employee.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.button_employee.Location = new System.Drawing.Point(300, 70);
+            this.button_employee.Name = "button_employee";
+            this.button_employee.Size = new System.Drawing.Size(188, 167);
+            this.button_employee.TabIndex = 1;
+            this.button_employee.Text = "Mitareiter/-innen";
+            this.button_employee.UseVisualStyleBackColor = true;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(516, 306);
+            this.Controls.Add(this.button_employee);
+            this.Controls.Add(this.button_projects);
+            this.Name = "Form1";
+            this.Text = "Start";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button button_projects;
+        private System.Windows.Forms.Button button_employee;
     }
 }
 
