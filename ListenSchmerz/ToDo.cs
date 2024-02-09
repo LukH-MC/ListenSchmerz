@@ -12,20 +12,20 @@ namespace ListenSchmerz
 {
     public partial class ToDo : Form
     {
-        private TreeView treeView1;
-        private TextBox textBox1;
-        private Label label1;
-        private DateTimePicker dateTimePicker1;
-        private DateTimePicker dateTimePicker2;
-        private Label label2;
-        private Label label3;
-        private NumericUpDown numericUpDown1;
-        private Label label4;
-        private ListBox listBox1;
+        private TreeView tv_TreeView;
+        private TextBox tb_Title;
+        private Label lStart;
+        private DateTimePicker dtp_Start;
+        private DateTimePicker dtp_End;
+        private Label lEnd;
+        private Label lPrio;
+        private NumericUpDown nud_Prio;
+        private Label lContacts;
+        private ListBox lt_contacts;
         private Button button_selCont;
-        private Label label5;
-        private RichTextBox richTextBox1;
-        private CheckBox checkBox1;
+        private Label lDesc;
+        private RichTextBox tb_desc;
+        private CheckBox cb_Done;
         private Button button_newToDo;
         private Button button_newEntry;
         private Button button_delete;
@@ -38,169 +38,171 @@ namespace ListenSchmerz
 
         private void InitializeComponent()
         {
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.tv_TreeView = new System.Windows.Forms.TreeView();
             this.lTitle = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label4 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.tb_Title = new System.Windows.Forms.TextBox();
+            this.lStart = new System.Windows.Forms.Label();
+            this.dtp_Start = new System.Windows.Forms.DateTimePicker();
+            this.dtp_End = new System.Windows.Forms.DateTimePicker();
+            this.lEnd = new System.Windows.Forms.Label();
+            this.lPrio = new System.Windows.Forms.Label();
+            this.nud_Prio = new System.Windows.Forms.NumericUpDown();
+            this.lContacts = new System.Windows.Forms.Label();
+            this.lt_contacts = new System.Windows.Forms.ListBox();
             this.button_selCont = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.lDesc = new System.Windows.Forms.Label();
+            this.tb_desc = new System.Windows.Forms.RichTextBox();
+            this.cb_Done = new System.Windows.Forms.CheckBox();
             this.button_newToDo = new System.Windows.Forms.Button();
             this.button_newEntry = new System.Windows.Forms.Button();
             this.button_delete = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Prio)).BeginInit();
             this.SuspendLayout();
             // 
-            // treeView1
+            // tv_TreeView
             // 
-            this.treeView1.Location = new System.Drawing.Point(12, 25);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(320, 489);
-            this.treeView1.TabIndex = 0;
-            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            this.tv_TreeView.Location = new System.Drawing.Point(12, 25);
+            this.tv_TreeView.Name = "tv_TreeView";
+            this.tv_TreeView.Size = new System.Drawing.Size(373, 593);
+            this.tv_TreeView.TabIndex = 0;
+            this.tv_TreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // lTitle
             // 
             this.lTitle.AutoSize = true;
             this.lTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lTitle.Location = new System.Drawing.Point(348, 27);
+            this.lTitle.Location = new System.Drawing.Point(406, 27);
             this.lTitle.Name = "lTitle";
             this.lTitle.Size = new System.Drawing.Size(41, 20);
             this.lTitle.TabIndex = 1;
             this.lTitle.Text = "Titel";
             this.lTitle.Click += new System.EventHandler(this.label1_Click);
             // 
-            // textBox1
+            // tb_Title
             // 
-            this.textBox1.Location = new System.Drawing.Point(475, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(368, 22);
-            this.textBox1.TabIndex = 2;
+            this.tb_Title.Location = new System.Drawing.Point(533, 25);
+            this.tb_Title.Name = "tb_Title";
+            this.tb_Title.Size = new System.Drawing.Size(368, 22);
+            this.tb_Title.TabIndex = 2;
             // 
-            // label1
+            // lStart
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(348, 84);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Startdatum";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
+            this.lStart.AutoSize = true;
+            this.lStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lStart.Location = new System.Drawing.Point(406, 84);
+            this.lStart.Name = "lStart";
+            this.lStart.Size = new System.Drawing.Size(91, 20);
+            this.lStart.TabIndex = 3;
+            this.lStart.Text = "Startdatum";
+            this.lStart.Click += new System.EventHandler(this.label1_Click_1);
             // 
-            // dateTimePicker1
+            // dtp_Start
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(475, 84);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(368, 22);
-            this.dateTimePicker1.TabIndex = 5;
+            this.dtp_Start.Location = new System.Drawing.Point(533, 84);
+            this.dtp_Start.Name = "dtp_Start";
+            this.dtp_Start.Size = new System.Drawing.Size(368, 22);
+            this.dtp_Start.TabIndex = 5;
             // 
-            // dateTimePicker2
+            // dtp_End
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(475, 142);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(368, 22);
-            this.dateTimePicker2.TabIndex = 7;
+            this.dtp_End.Location = new System.Drawing.Point(533, 142);
+            this.dtp_End.Name = "dtp_End";
+            this.dtp_End.Size = new System.Drawing.Size(368, 22);
+            this.dtp_End.TabIndex = 7;
             // 
-            // label2
+            // lEnd
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(348, 142);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 20);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Enddatum";
+            this.lEnd.AutoSize = true;
+            this.lEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lEnd.Location = new System.Drawing.Point(406, 142);
+            this.lEnd.Name = "lEnd";
+            this.lEnd.Size = new System.Drawing.Size(84, 20);
+            this.lEnd.TabIndex = 6;
+            this.lEnd.Text = "Enddatum";
             // 
-            // label3
+            // lPrio
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(348, 212);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 20);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Priorität";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.lPrio.AutoSize = true;
+            this.lPrio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lPrio.Location = new System.Drawing.Point(406, 202);
+            this.lPrio.Name = "lPrio";
+            this.lPrio.Size = new System.Drawing.Size(68, 20);
+            this.lPrio.TabIndex = 8;
+            this.lPrio.Text = "Priorität";
+            this.lPrio.Click += new System.EventHandler(this.label3_Click);
             // 
-            // numericUpDown1
+            // nud_Prio
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(475, 209);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(57, 22);
-            this.numericUpDown1.TabIndex = 9;
+            this.nud_Prio.Location = new System.Drawing.Point(533, 199);
+            this.nud_Prio.Name = "nud_Prio";
+            this.nud_Prio.Size = new System.Drawing.Size(57, 22);
+            this.nud_Prio.TabIndex = 9;
             // 
-            // label4
+            // lContacts
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(348, 270);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 40);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "betroffene\r\nKontakte";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.lContacts.AutoSize = true;
+            this.lContacts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lContacts.Location = new System.Drawing.Point(406, 258);
+            this.lContacts.Name = "lContacts";
+            this.lContacts.Size = new System.Drawing.Size(84, 40);
+            this.lContacts.TabIndex = 10;
+            this.lContacts.Text = "betroffene\r\nKontakte";
+            this.lContacts.Click += new System.EventHandler(this.label4_Click);
             // 
-            // listBox1
+            // lt_contacts
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(475, 270);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(358, 52);
-            this.listBox1.TabIndex = 11;
+            this.lt_contacts.FormattingEnabled = true;
+            this.lt_contacts.ItemHeight = 16;
+            this.lt_contacts.Location = new System.Drawing.Point(533, 258);
+            this.lt_contacts.Name = "lt_contacts";
+            this.lt_contacts.ScrollAlwaysVisible = true;
+            this.lt_contacts.Size = new System.Drawing.Size(358, 52);
+            this.lt_contacts.TabIndex = 11;
+            this.lt_contacts.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // button_selCont
             // 
-            this.button_selCont.Location = new System.Drawing.Point(610, 241);
+            this.button_selCont.Location = new System.Drawing.Point(668, 229);
             this.button_selCont.Name = "button_selCont";
             this.button_selCont.Size = new System.Drawing.Size(223, 23);
             this.button_selCont.TabIndex = 12;
             this.button_selCont.Text = "Kontakte auswählen";
             this.button_selCont.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // lDesc
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(348, 353);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(112, 20);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Beschreibung";
+            this.lDesc.AutoSize = true;
+            this.lDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lDesc.Location = new System.Drawing.Point(406, 353);
+            this.lDesc.Name = "lDesc";
+            this.lDesc.Size = new System.Drawing.Size(112, 20);
+            this.lDesc.TabIndex = 13;
+            this.lDesc.Text = "Beschreibung";
             // 
-            // richTextBox1
+            // tb_desc
             // 
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Location = new System.Drawing.Point(475, 353);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.richTextBox1.Size = new System.Drawing.Size(358, 184);
-            this.richTextBox1.TabIndex = 15;
-            this.richTextBox1.Text = "";
+            this.tb_desc.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_desc.Location = new System.Drawing.Point(533, 353);
+            this.tb_desc.Name = "tb_desc";
+            this.tb_desc.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.tb_desc.Size = new System.Drawing.Size(358, 302);
+            this.tb_desc.TabIndex = 15;
+            this.tb_desc.Text = "";
             // 
-            // checkBox1
+            // cb_Done
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(573, 574);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(163, 43);
-            this.checkBox1.TabIndex = 16;
-            this.checkBox1.Text = "Erledigt";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cb_Done.AutoSize = true;
+            this.cb_Done.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_Done.Location = new System.Drawing.Point(636, 674);
+            this.cb_Done.Name = "cb_Done";
+            this.cb_Done.Size = new System.Drawing.Size(157, 42);
+            this.cb_Done.TabIndex = 16;
+            this.cb_Done.Text = "Erledigt";
+            this.cb_Done.UseVisualStyleBackColor = true;
             // 
             // button_newToDo
             // 
-            this.button_newToDo.Location = new System.Drawing.Point(12, 520);
+            this.button_newToDo.Location = new System.Drawing.Point(35, 624);
             this.button_newToDo.Name = "button_newToDo";
             this.button_newToDo.Size = new System.Drawing.Size(146, 32);
             this.button_newToDo.TabIndex = 17;
@@ -209,7 +211,7 @@ namespace ListenSchmerz
             // 
             // button_newEntry
             // 
-            this.button_newEntry.Location = new System.Drawing.Point(186, 520);
+            this.button_newEntry.Location = new System.Drawing.Point(209, 624);
             this.button_newEntry.Name = "button_newEntry";
             this.button_newEntry.Size = new System.Drawing.Size(146, 32);
             this.button_newEntry.TabIndex = 18;
@@ -218,7 +220,7 @@ namespace ListenSchmerz
             // 
             // button_delete
             // 
-            this.button_delete.Location = new System.Drawing.Point(100, 574);
+            this.button_delete.Location = new System.Drawing.Point(123, 678);
             this.button_delete.Name = "button_delete";
             this.button_delete.Size = new System.Drawing.Size(146, 32);
             this.button_delete.TabIndex = 19;
@@ -227,29 +229,29 @@ namespace ListenSchmerz
             // 
             // ToDo
             // 
-            this.ClientSize = new System.Drawing.Size(867, 636);
+            this.ClientSize = new System.Drawing.Size(959, 738);
             this.Controls.Add(this.button_delete);
             this.Controls.Add(this.button_newEntry);
             this.Controls.Add(this.button_newToDo);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cb_Done);
+            this.Controls.Add(this.tb_desc);
+            this.Controls.Add(this.lDesc);
             this.Controls.Add(this.button_selCont);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lt_contacts);
+            this.Controls.Add(this.lContacts);
+            this.Controls.Add(this.nud_Prio);
+            this.Controls.Add(this.lPrio);
+            this.Controls.Add(this.dtp_End);
+            this.Controls.Add(this.lEnd);
+            this.Controls.Add(this.dtp_Start);
+            this.Controls.Add(this.lStart);
+            this.Controls.Add(this.tb_Title);
             this.Controls.Add(this.lTitle);
-            this.Controls.Add(this.treeView1);
+            this.Controls.Add(this.tv_TreeView);
             this.Name = "ToDo";
             this.Text = "ToDoListe";
             this.Load += new System.EventHandler(this.ToDo_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Prio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,6 +290,11 @@ namespace ListenSchmerz
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
 
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
