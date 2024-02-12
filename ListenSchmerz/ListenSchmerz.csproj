@@ -58,6 +58,9 @@
     <Compile Include="Kontakte.Designer.cs">
       <DependentUpon>Kontakte.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyDateTimePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ToDo.cs">
