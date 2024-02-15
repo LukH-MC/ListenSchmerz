@@ -39,6 +39,8 @@
             this.lBild = new System.Windows.Forms.Label();
             this.tb_Telefon = new System.Windows.Forms.TextBox();
             this.tb_Mail = new System.Windows.Forms.TextBox();
+            this.button_Speichern = new System.Windows.Forms.Button();
+            this.button_suche = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lName
@@ -141,11 +143,32 @@
             this.tb_Mail.Size = new System.Drawing.Size(207, 22);
             this.tb_Mail.TabIndex = 10;
             // 
+            // button_Speichern
+            // 
+            this.button_Speichern.Location = new System.Drawing.Point(164, 426);
+            this.button_Speichern.Name = "button_Speichern";
+            this.button_Speichern.Size = new System.Drawing.Size(86, 29);
+            this.button_Speichern.TabIndex = 11;
+            this.button_Speichern.Text = "Speichern";
+            this.button_Speichern.UseVisualStyleBackColor = true;
+            this.button_Speichern.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button_suche
+            // 
+            this.button_suche.Location = new System.Drawing.Point(281, 426);
+            this.button_suche.Name = "button_suche";
+            this.button_suche.Size = new System.Drawing.Size(105, 29);
+            this.button_suche.TabIndex = 12;
+            this.button_suche.Text = "Daten suchen";
+            this.button_suche.UseVisualStyleBackColor = true;
+            // 
             // Kontakte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(932, 383);
+            this.ClientSize = new System.Drawing.Size(932, 477);
+            this.Controls.Add(this.button_suche);
+            this.Controls.Add(this.button_Speichern);
             this.Controls.Add(this.tb_Mail);
             this.Controls.Add(this.tb_Telefon);
             this.Controls.Add(this.lBild);
@@ -157,6 +180,7 @@
             this.Controls.Add(this.lAdresse);
             this.Controls.Add(this.lVorname);
             this.Controls.Add(this.lName);
+            this.MinimumSize = new System.Drawing.Size(950, 524);
             this.Name = "Kontakte";
             this.Text = "Kontakte";
             this.Load += new System.EventHandler(this.Kontakte_Load);
@@ -178,6 +202,8 @@
         private System.Windows.Forms.Label lBild;
         private System.Windows.Forms.TextBox tb_Telefon;
         private System.Windows.Forms.TextBox tb_Mail;
+        private System.Windows.Forms.Button button_Speichern;
+        private System.Windows.Forms.Button button_suche;
     }
 }
 

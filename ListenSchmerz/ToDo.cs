@@ -109,7 +109,7 @@ namespace ListenSchmerz
             this.lTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lTitle.Location = new System.Drawing.Point(406, 27);
             this.lTitle.Name = "lTitle";
-            this.lTitle.Size = new System.Drawing.Size(35, 17);
+            this.lTitle.Size = new System.Drawing.Size(41, 20);
             this.lTitle.TabIndex = 1;
             this.lTitle.Text = "Titel";
             this.lTitle.Click += new System.EventHandler(this.label1_Click);
@@ -118,7 +118,7 @@ namespace ListenSchmerz
             // 
             this.tb_Title.Location = new System.Drawing.Point(533, 25);
             this.tb_Title.Name = "tb_Title";
-            this.tb_Title.Size = new System.Drawing.Size(368, 20);
+            this.tb_Title.Size = new System.Drawing.Size(368, 22);
             this.tb_Title.TabIndex = 2;
             // 
             // lStart
@@ -127,7 +127,7 @@ namespace ListenSchmerz
             this.lStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lStart.Location = new System.Drawing.Point(406, 84);
             this.lStart.Name = "lStart";
-            this.lStart.Size = new System.Drawing.Size(77, 17);
+            this.lStart.Size = new System.Drawing.Size(91, 20);
             this.lStart.TabIndex = 3;
             this.lStart.Text = "Startdatum";
             this.lStart.Click += new System.EventHandler(this.label1_Click_1);
@@ -136,14 +136,14 @@ namespace ListenSchmerz
             // 
             this.dtp_Startawd.Location = new System.Drawing.Point(533, 84);
             this.dtp_Startawd.Name = "dtp_Startawd";
-            this.dtp_Startawd.Size = new System.Drawing.Size(368, 20);
+            this.dtp_Startawd.Size = new System.Drawing.Size(368, 22);
             this.dtp_Startawd.TabIndex = 5;
             // 
             // dtp_End
             // 
             this.dtp_End.Location = new System.Drawing.Point(533, 142);
             this.dtp_End.Name = "dtp_End";
-            this.dtp_End.Size = new System.Drawing.Size(368, 20);
+            this.dtp_End.Size = new System.Drawing.Size(368, 22);
             this.dtp_End.TabIndex = 7;
             // 
             // lEnd
@@ -152,7 +152,7 @@ namespace ListenSchmerz
             this.lEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lEnd.Location = new System.Drawing.Point(406, 142);
             this.lEnd.Name = "lEnd";
-            this.lEnd.Size = new System.Drawing.Size(72, 17);
+            this.lEnd.Size = new System.Drawing.Size(84, 20);
             this.lEnd.TabIndex = 6;
             this.lEnd.Text = "Enddatum";
             // 
@@ -162,7 +162,7 @@ namespace ListenSchmerz
             this.lPrio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lPrio.Location = new System.Drawing.Point(406, 202);
             this.lPrio.Name = "lPrio";
-            this.lPrio.Size = new System.Drawing.Size(57, 17);
+            this.lPrio.Size = new System.Drawing.Size(68, 20);
             this.lPrio.TabIndex = 8;
             this.lPrio.Text = "Priorität";
             this.lPrio.Click += new System.EventHandler(this.label3_Click);
@@ -171,7 +171,7 @@ namespace ListenSchmerz
             // 
             this.nud_Prio.Location = new System.Drawing.Point(533, 199);
             this.nud_Prio.Name = "nud_Prio";
-            this.nud_Prio.Size = new System.Drawing.Size(57, 20);
+            this.nud_Prio.Size = new System.Drawing.Size(57, 22);
             this.nud_Prio.TabIndex = 9;
             // 
             // lContacts
@@ -180,7 +180,7 @@ namespace ListenSchmerz
             this.lContacts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lContacts.Location = new System.Drawing.Point(406, 258);
             this.lContacts.Name = "lContacts";
-            this.lContacts.Size = new System.Drawing.Size(73, 34);
+            this.lContacts.Size = new System.Drawing.Size(84, 40);
             this.lContacts.TabIndex = 10;
             this.lContacts.Text = "betroffene\r\nKontakte";
             this.lContacts.Click += new System.EventHandler(this.label4_Click);
@@ -188,10 +188,11 @@ namespace ListenSchmerz
             // lt_contacts
             // 
             this.lt_contacts.FormattingEnabled = true;
+            this.lt_contacts.ItemHeight = 16;
             this.lt_contacts.Location = new System.Drawing.Point(533, 258);
             this.lt_contacts.Name = "lt_contacts";
             this.lt_contacts.ScrollAlwaysVisible = true;
-            this.lt_contacts.Size = new System.Drawing.Size(358, 43);
+            this.lt_contacts.Size = new System.Drawing.Size(358, 36);
             this.lt_contacts.TabIndex = 11;
             this.lt_contacts.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -210,7 +211,7 @@ namespace ListenSchmerz
             this.lDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lDesc.Location = new System.Drawing.Point(406, 353);
             this.lDesc.Name = "lDesc";
-            this.lDesc.Size = new System.Drawing.Size(95, 17);
+            this.lDesc.Size = new System.Drawing.Size(112, 20);
             this.lDesc.TabIndex = 13;
             this.lDesc.Text = "Beschreibung";
             // 
@@ -230,7 +231,7 @@ namespace ListenSchmerz
             this.cb_Done.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_Done.Location = new System.Drawing.Point(636, 674);
             this.cb_Done.Name = "cb_Done";
-            this.cb_Done.Size = new System.Drawing.Size(133, 35);
+            this.cb_Done.Size = new System.Drawing.Size(157, 42);
             this.cb_Done.TabIndex = 16;
             this.cb_Done.Text = "Erledigt";
             this.cb_Done.UseVisualStyleBackColor = true;
@@ -268,7 +269,7 @@ namespace ListenSchmerz
             this.dtp_Start.Cursor = System.Windows.Forms.Cursors.Default;
             this.dtp_Start.Location = new System.Drawing.Point(533, 110);
             this.dtp_Start.Name = "dtp_Start";
-            this.dtp_Start.Size = new System.Drawing.Size(368, 20);
+            this.dtp_Start.Size = new System.Drawing.Size(368, 22);
             this.dtp_Start.TabIndex = 5;
             // 
             // ToDo
@@ -293,6 +294,7 @@ namespace ListenSchmerz
             this.Controls.Add(this.tb_Title);
             this.Controls.Add(this.lTitle);
             this.Controls.Add(this.tv_TreeView);
+            this.MinimumSize = new System.Drawing.Size(977, 785);
             this.Name = "ToDo";
             this.Text = "ToDoListe";
             this.Load += new System.EventHandler(this.ToDo_Load);
