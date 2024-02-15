@@ -330,6 +330,11 @@ namespace ListenSchmerz
             {
                 connection.Open();
                 Console.WriteLine("DB Verbunden!");
+                MySqlTransaction insertTrans = connection.BeginTransaction();
+                MySqlCommand insertSQL = connection.CreateCommand();
+                insertSQL.CommandText = "INSERT INTO todoliste VALUES (" + this.tb_Title.Text + ", " + this.tb_desc.Text + ");";
+                insertSQL.ExecuteNonQuery();
+                insertTrans.Commit();
             }
             catch (Exception ex)
             {
