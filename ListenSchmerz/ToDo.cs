@@ -73,9 +73,8 @@ namespace ListenSchmerz
 
         private void InitializeComponent()
         {
-            //
-            //get DB inhalte
-            //
+            //so kannst du eine DB verbindung aufbauen
+            /*
             string con = "Server=127.0.0.1;Database=listen;User ID=root;";
             MySqlConnection connection = new MySqlConnection(con);
             try
@@ -86,12 +85,8 @@ namespace ListenSchmerz
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-            }
-            finally
-            {
-                connection.Close();
-                Console.WriteLine("EB Geschlossen");
-            }
+            }*/
+
 
 
             this.tv_TreeView = new System.Windows.Forms.TreeView();
@@ -326,6 +321,22 @@ namespace ListenSchmerz
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+        private void button_newTodo(object sender, EventArgs e)
+        {
+            string con = "Server=127.0.0.1;Database=listen;User ID=root;";
+            MySqlConnection connection = new MySqlConnection(con);
+            try
+            {
+                connection.Open();
+                Console.WriteLine("DB Verbunden!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            connection.Close();
         }
 
         private void ToDo_Load(object sender, EventArgs e)
