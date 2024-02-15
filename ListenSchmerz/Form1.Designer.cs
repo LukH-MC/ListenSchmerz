@@ -67,7 +67,7 @@
             this.button_togleDarkMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_togleDarkMode.ForeColor = System.Drawing.Color.Black;
             this.button_togleDarkMode.Location = new System.Drawing.Point(451, 0);
-            this.button_togleDarkMode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_togleDarkMode.Margin = new System.Windows.Forms.Padding(4);
             this.button_togleDarkMode.Name = "button_togleDarkMode";
             this.button_togleDarkMode.Size = new System.Drawing.Size(32, 38);
             this.button_togleDarkMode.TabIndex = 2;
@@ -89,6 +89,7 @@
             this.MinimumSize = new System.Drawing.Size(502, 358);
             this.Name = "Form1";
             this.Text = "Start";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }

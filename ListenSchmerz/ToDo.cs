@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -72,6 +73,27 @@ namespace ListenSchmerz
 
         private void InitializeComponent()
         {
+            //
+            //get DB inhalte
+            //
+            string con = "Server=127.0.0.1;Database=listen;User ID=root;";
+            MySqlConnection connection = new MySqlConnection(con);
+            try
+            {
+                connection.Open();
+                Console.WriteLine("DB Verbunden!");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            finally
+            {
+                connection.Close();
+                Console.WriteLine("EB Geschlossen");
+            }
+
+
             this.tv_TreeView = new System.Windows.Forms.TreeView();
             this.lTitle = new System.Windows.Forms.Label();
             this.tb_Title = new System.Windows.Forms.TextBox();
@@ -224,6 +246,7 @@ namespace ListenSchmerz
             this.tb_desc.Size = new System.Drawing.Size(358, 302);
             this.tb_desc.TabIndex = 15;
             this.tb_desc.Text = "";
+            this.tb_desc.TextChanged += new System.EventHandler(this.tb_desc_TextChanged);
             // 
             // cb_Done
             // 
@@ -294,6 +317,7 @@ namespace ListenSchmerz
             this.Controls.Add(this.tb_Title);
             this.Controls.Add(this.lTitle);
             this.Controls.Add(this.tv_TreeView);
+            this.MaximumSize = new System.Drawing.Size(977, 785);
             this.MinimumSize = new System.Drawing.Size(977, 785);
             this.Name = "ToDo";
             this.Text = "ToDoListe";
@@ -342,6 +366,11 @@ namespace ListenSchmerz
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void tb_desc_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
