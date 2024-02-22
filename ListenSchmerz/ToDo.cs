@@ -18,7 +18,6 @@ namespace ListenSchmerz
         private TreeView tv_TreeView;
         private TextBox tb_Title;
         private Label lStart;
-        private DateTimePicker dtp_Startawd;
         private DateTimePicker dtp_End;
         private Label lEnd;
         private Label lPrio;
@@ -52,7 +51,6 @@ namespace ListenSchmerz
                     this.button_selCont.BackColor = System.Drawing.Color.LightGray;
                     this.tv_TreeView.BackColor = System.Drawing.Color.Gainsboro;
                     this.tb_Title.BackColor = System.Drawing.Color.Gainsboro;
-                    this.dtp_Startawd.CalendarMonthBackground = System.Drawing.Color.Gainsboro;
                     this.dtp_End.CalendarMonthBackground = System.Drawing.Color.Gainsboro;
                     this.nud_Prio.BackColor = System.Drawing.Color.Gainsboro;
                     this.lt_contacts.BackColor = System.Drawing.Color.Gainsboro;
@@ -73,27 +71,10 @@ namespace ListenSchmerz
 
         private void InitializeComponent()
         {
-            //so kannst du eine DB verbindung aufbauen
-            /*
-            string con = "Server=127.0.0.1;Database=listen;User ID=root;";
-            MySqlConnection connection = new MySqlConnection(con);
-            try
-            {
-                connection.Open();
-                Console.WriteLine("DB Verbunden!");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
-            }*/
-
-
-
             this.tv_TreeView = new System.Windows.Forms.TreeView();
             this.lTitle = new System.Windows.Forms.Label();
             this.tb_Title = new System.Windows.Forms.TextBox();
             this.lStart = new System.Windows.Forms.Label();
-            this.dtp_Startawd = new System.Windows.Forms.DateTimePicker();
             this.dtp_End = new System.Windows.Forms.DateTimePicker();
             this.lEnd = new System.Windows.Forms.Label();
             this.lPrio = new System.Windows.Forms.Label();
@@ -148,13 +129,6 @@ namespace ListenSchmerz
             this.lStart.TabIndex = 3;
             this.lStart.Text = "Startdatum";
             this.lStart.Click += new System.EventHandler(this.label1_Click_1);
-            // 
-            // dtp_Startawd
-            // 
-            this.dtp_Startawd.Location = new System.Drawing.Point(533, 84);
-            this.dtp_Startawd.Name = "dtp_Startawd";
-            this.dtp_Startawd.Size = new System.Drawing.Size(368, 22);
-            this.dtp_Startawd.TabIndex = 5;
             // 
             // dtp_End
             // 
@@ -285,7 +259,7 @@ namespace ListenSchmerz
             // 
             this.dtp_Start.BackDisabledColor = System.Drawing.SystemColors.Window;
             this.dtp_Start.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dtp_Start.Location = new System.Drawing.Point(533, 110);
+            this.dtp_Start.Location = new System.Drawing.Point(533, 84);
             this.dtp_Start.Name = "dtp_Start";
             this.dtp_Start.Size = new System.Drawing.Size(368, 22);
             this.dtp_Start.TabIndex = 5;
@@ -307,7 +281,6 @@ namespace ListenSchmerz
             this.Controls.Add(this.lPrio);
             this.Controls.Add(this.dtp_End);
             this.Controls.Add(this.lEnd);
-            this.Controls.Add(this.dtp_Startawd);
             this.Controls.Add(this.lStart);
             this.Controls.Add(this.tb_Title);
             this.Controls.Add(this.lTitle);
