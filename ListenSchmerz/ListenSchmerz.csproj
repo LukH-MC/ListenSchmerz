@@ -103,5 +103,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Datenbank\db.opt" />
+    <Content Include="Datenbank\kontakte.frm" />
+    <Content Include="Datenbank\kontakte.ibd" />
+    <Content Include="Datenbank\todo.frm" />
+    <Content Include="Datenbank\todo.ibd" />
+    <Content Include="Datenbank\todoliste.frm" />
+    <Content Include="Datenbank\todoliste.ibd" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
