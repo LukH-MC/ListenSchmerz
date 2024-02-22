@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+// ReSharper disable RedundantNameQualifier
+// ReSharper disable InconsistentNaming
 
 namespace ListenSchmerz
 {
@@ -236,6 +238,7 @@ namespace ListenSchmerz
             this.button_newToDo.TabIndex = 17;
             this.button_newToDo.Text = "Neue TODO-Liste";
             this.button_newToDo.UseVisualStyleBackColor = true;
+            this.button_newToDo.Click += new EventHandler(this.newToDo_click);
             // 
             // button_newEntry
             // 
@@ -245,6 +248,7 @@ namespace ListenSchmerz
             this.button_newEntry.TabIndex = 18;
             this.button_newEntry.Text = "Neuer Eintrag";
             this.button_newEntry.UseVisualStyleBackColor = true;
+            this.button_newToDo.Click += new EventHandler(this.newEntry_click);
             // 
             // button_delete
             // 
@@ -295,19 +299,21 @@ namespace ListenSchmerz
             this.PerformLayout();
 
         }
-        private void button_newTodo(object sender, EventArgs e)
+        private void newEntry_click(object sender, EventArgs e)
         {
+            //TODO: Database insert
             string con = "Server=127.0.0.1;Database=listen;User ID=root;";
             MySqlConnection connection = new MySqlConnection(con);
             try
             {
                 connection.Open();
                 Console.WriteLine("DB Verbunden!");
-                MySqlTransaction insertTrans = connection.BeginTransaction();
-                MySqlCommand insertSQL = connection.CreateCommand();
-                insertSQL.CommandText = "INSERT INTO todoliste VALUES (" + this.tb_Title.Text + ", " + this.tb_desc.Text + ");";
-                insertSQL.ExecuteNonQuery();
-                insertTrans.Commit();
+                //DER ANGEZEIGTE FEHLER IST KEIN FEHLER
+                string insertsql = "INSERT INTO todoliste VALUES ('" + this.tb_Title.Text + "', '" + this.tb_desc.Text + "');";
+                MySqlCommand insertCMD = new MySqlCommand(insertsql, connection);
+                Console.WriteLine(tb_Title.Text + " ; " + tb_desc.Text);
+                insertCMD.ExecuteNonQuery();
+
             }
             catch (Exception ex)
             {
@@ -316,6 +322,31 @@ namespace ListenSchmerz
 
             connection.Close();
         }
+        
+        private void newToDo_click(object sender, EventArgs e)
+        {
+            //TODO: Database insert
+            string con = "Server=127.0.0.1;Database=listen;User ID=root;";
+            MySqlConnection connection = new MySqlConnection(con);
+            try
+            {
+                connection.Open();
+                Console.WriteLine("DB Verbunden!");
+                //DER ANGEZEIGTE FEHLER IST KEIN FEHLER
+                string insertsql = "INSERT INTO todo VALUES ('" + this.tb_Title.Text + "', '" + this.tb_desc.Text + "');";
+                MySqlCommand insertCMD = new MySqlCommand(insertsql, connection);
+                Console.WriteLine(tb_Title.Text + " ; " + tb_desc.Text);
+                insertCMD.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            connection.Close();
+        }
+
 
         private void ToDo_Load(object sender, EventArgs e)
         {
