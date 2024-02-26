@@ -50,35 +50,45 @@ namespace ListenSchmerz
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Contact save button
+            //Contact add button
             MessageBox.Show(new NotImplementedException().ToString(), "Error", MessageBoxButtons.OK);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //Image load button
             var filePath = string.Empty;
+            MessageBox.Show("Bite wählen sie nur Bilder aus die 156x156 Pixel Groß sind!", "Hinweis", MessageBoxButtons.OK);
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+            openFileDialog.Filter = "Images(*.BMP;*.JPG;*.GIF, *.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*";
+            openFileDialog.Title = "Please select an image file";
+            openFileDialog.RestoreDirectory = true;
 
-            OpenFileDialog OpenFileDialog = new OpenFileDialog();
-            OpenFileDialog.InitialDirectory = "c:\\Bilder";
-            OpenFileDialog.Filter = "Images(*.BMP;*.JPG;*.GIF, *.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*";
-            OpenFileDialog.RestoreDirectory = true;
-            if (OpenFileDialog.ShowDialog() == DialogResult.OK) {
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
                 //Get the path of specified file
-                filePath = OpenFileDialog.FileName;
+                filePath = openFileDialog.FileName;
+
+                // Create and show the cropping form
+                using (CropForm cropForm = new CropForm(filePath))
+                {
+                    if (cropForm.ShowDialog() == DialogResult.OK)
+                    {
+                        // Load the cropped image into PictureBox
+                        pictureBox.Image = cropForm.CroppedImage;
+                        pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                    }
+                }
             }
-            try {
-                pictureBox.Image = Image.FromFile(filePath);
-            }
-            catch (ArgumentException) {
-                
+            else
+            {
                 MessageBox.Show("Es wurde keine Datei angegeben!", "Error", MessageBoxButtons.OK);
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //Data search button
+            //Data delete button
             MessageBox.Show(new NotImplementedException().ToString(), "Error", MessageBoxButtons.OK);
         }
     }

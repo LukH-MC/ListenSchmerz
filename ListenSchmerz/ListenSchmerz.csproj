@@ -56,6 +56,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="CropForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CropForm.Designer.cs">
+      <DependentUpon>CropForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Kontakte.cs">
       <SubType>Form</SubType>
     </Compile>

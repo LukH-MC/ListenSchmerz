@@ -1,4 +1,6 @@
-﻿namespace ListenSchmerz
+﻿using System.Windows.Forms;
+
+namespace ListenSchmerz
 {
     partial class Kontakte
     {
@@ -39,10 +41,11 @@
             this.lBild = new System.Windows.Forms.Label();
             this.tb_Telefon = new System.Windows.Forms.TextBox();
             this.tb_Mail = new System.Windows.Forms.TextBox();
-            this.button_Speichern = new System.Windows.Forms.Button();
-            this.button_suche = new System.Windows.Forms.Button();
+            this.button_add = new System.Windows.Forms.Button();
+            this.button_delete = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.button_imageLoad = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +53,7 @@
             // 
             this.lName.AutoSize = true;
             this.lName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.16F);
-            this.lName.Location = new System.Drawing.Point(38, 34);
+            this.lName.Location = new System.Drawing.Point(236, 34);
             this.lName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lName.Name = "lName";
             this.lName.Size = new System.Drawing.Size(53, 20);
@@ -62,7 +65,7 @@
             // 
             this.lVorname.AutoSize = true;
             this.lVorname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.16F);
-            this.lVorname.Location = new System.Drawing.Point(38, 109);
+            this.lVorname.Location = new System.Drawing.Point(236, 109);
             this.lVorname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lVorname.Name = "lVorname";
             this.lVorname.Size = new System.Drawing.Size(76, 20);
@@ -74,7 +77,7 @@
             // 
             this.lAdresse.AutoSize = true;
             this.lAdresse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.16F);
-            this.lAdresse.Location = new System.Drawing.Point(38, 192);
+            this.lAdresse.Location = new System.Drawing.Point(236, 192);
             this.lAdresse.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lAdresse.Name = "lAdresse";
             this.lAdresse.Size = new System.Drawing.Size(71, 20);
@@ -84,7 +87,7 @@
             // 
             // tb_Name
             // 
-            this.tb_Name.Location = new System.Drawing.Point(123, 37);
+            this.tb_Name.Location = new System.Drawing.Point(321, 37);
             this.tb_Name.Margin = new System.Windows.Forms.Padding(2);
             this.tb_Name.Name = "tb_Name";
             this.tb_Name.Size = new System.Drawing.Size(156, 20);
@@ -92,7 +95,7 @@
             // 
             // tb_Vorname
             // 
-            this.tb_Vorname.Location = new System.Drawing.Point(123, 112);
+            this.tb_Vorname.Location = new System.Drawing.Point(321, 112);
             this.tb_Vorname.Margin = new System.Windows.Forms.Padding(2);
             this.tb_Vorname.Name = "tb_Vorname";
             this.tb_Vorname.Size = new System.Drawing.Size(156, 20);
@@ -100,7 +103,7 @@
             // 
             // tb_Adresse
             // 
-            this.tb_Adresse.Location = new System.Drawing.Point(123, 195);
+            this.tb_Adresse.Location = new System.Drawing.Point(321, 195);
             this.tb_Adresse.Margin = new System.Windows.Forms.Padding(2);
             this.tb_Adresse.Name = "tb_Adresse";
             this.tb_Adresse.Size = new System.Drawing.Size(156, 20);
@@ -110,7 +113,7 @@
             // 
             this.lTelefon.AutoSize = true;
             this.lTelefon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.16F);
-            this.lTelefon.Location = new System.Drawing.Point(322, 35);
+            this.lTelefon.Location = new System.Drawing.Point(520, 35);
             this.lTelefon.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lTelefon.Name = "lTelefon";
             this.lTelefon.Size = new System.Drawing.Size(64, 20);
@@ -122,7 +125,7 @@
             // 
             this.lMail.AutoSize = true;
             this.lMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.16F);
-            this.lMail.Location = new System.Drawing.Point(322, 109);
+            this.lMail.Location = new System.Drawing.Point(520, 109);
             this.lMail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lMail.Name = "lMail";
             this.lMail.Size = new System.Drawing.Size(57, 20);
@@ -134,7 +137,7 @@
             // 
             this.lBild.AutoSize = true;
             this.lBild.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.16F);
-            this.lBild.Location = new System.Drawing.Point(322, 197);
+            this.lBild.Location = new System.Drawing.Point(520, 197);
             this.lBild.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lBild.Name = "lBild";
             this.lBild.Size = new System.Drawing.Size(38, 20);
@@ -143,7 +146,7 @@
             // 
             // tb_Telefon
             // 
-            this.tb_Telefon.Location = new System.Drawing.Point(402, 38);
+            this.tb_Telefon.Location = new System.Drawing.Point(600, 38);
             this.tb_Telefon.Margin = new System.Windows.Forms.Padding(2);
             this.tb_Telefon.Name = "tb_Telefon";
             this.tb_Telefon.Size = new System.Drawing.Size(156, 20);
@@ -151,48 +154,47 @@
             // 
             // tb_Mail
             // 
-            this.tb_Mail.Location = new System.Drawing.Point(402, 111);
+            this.tb_Mail.Location = new System.Drawing.Point(600, 111);
             this.tb_Mail.Margin = new System.Windows.Forms.Padding(2);
             this.tb_Mail.Name = "tb_Mail";
             this.tb_Mail.Size = new System.Drawing.Size(156, 20);
             this.tb_Mail.TabIndex = 10;
             // 
-            // button_Speichern
+            // button_add
             // 
-            this.button_Speichern.Location = new System.Drawing.Point(103, 346);
-            this.button_Speichern.Margin = new System.Windows.Forms.Padding(2);
-            this.button_Speichern.Name = "button_Speichern";
-            this.button_Speichern.Size = new System.Drawing.Size(64, 24);
-            this.button_Speichern.TabIndex = 11;
-            this.button_Speichern.Text = "Speichern";
-            this.button_Speichern.UseVisualStyleBackColor = true;
-            this.button_Speichern.Click += new System.EventHandler(this.button1_Click);
+            this.button_add.Location = new System.Drawing.Point(12, 341);
+            this.button_add.Margin = new System.Windows.Forms.Padding(2);
+            this.button_add.Name = "button_add";
+            this.button_add.Size = new System.Drawing.Size(99, 24);
+            this.button_add.TabIndex = 11;
+            this.button_add.Text = "Hinzufügen";
+            this.button_add.UseVisualStyleBackColor = true;
+            this.button_add.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button_suche
+            // button_delete
             // 
-            this.button_suche.Location = new System.Drawing.Point(180, 346);
-            this.button_suche.Margin = new System.Windows.Forms.Padding(2);
-            this.button_suche.Name = "button_suche";
-            this.button_suche.Size = new System.Drawing.Size(99, 24);
-            this.button_suche.TabIndex = 12;
-            this.button_suche.Text = "Daten suchen";
-            this.button_suche.UseVisualStyleBackColor = true;
-            this.button_suche.Click += new System.EventHandler(this.button3_Click);
+            this.button_delete.Location = new System.Drawing.Point(132, 341);
+            this.button_delete.Margin = new System.Windows.Forms.Padding(2);
+            this.button_delete.Name = "button_delete";
+            this.button_delete.Size = new System.Drawing.Size(99, 24);
+            this.button_delete.TabIndex = 12;
+            this.button_delete.Text = "Löschen";
+            this.button_delete.UseVisualStyleBackColor = true;
+            this.button_delete.Click += new System.EventHandler(this.button3_Click);
             // 
             // pictureBox
             // 
             this.pictureBox.BackColor = System.Drawing.SystemColors.Window;
             this.pictureBox.InitialImage = null;
-            this.pictureBox.Location = new System.Drawing.Point(402, 192);
+            this.pictureBox.Location = new System.Drawing.Point(600, 197);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(182, 182);
+            this.pictureBox.Size = new System.Drawing.Size(156, 156);
             this.pictureBox.TabIndex = 13;
-            this.pictureBox.TabStop = false;
             // 
             // button_imageLoad
             // 
             this.button_imageLoad.BackColor = System.Drawing.SystemColors.Control;
-            this.button_imageLoad.Location = new System.Drawing.Point(300, 346);
+            this.button_imageLoad.Location = new System.Drawing.Point(516, 219);
             this.button_imageLoad.Margin = new System.Windows.Forms.Padding(2);
             this.button_imageLoad.Name = "button_imageLoad";
             this.button_imageLoad.Size = new System.Drawing.Size(79, 24);
@@ -201,15 +203,24 @@
             this.button_imageLoad.UseVisualStyleBackColor = false;
             this.button_imageLoad.Click += new System.EventHandler(this.button2_Click);
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(12, 12);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(219, 316);
+            this.listBox1.TabIndex = 15;
+            // 
             // Kontakte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 394);
+            this.ClientSize = new System.Drawing.Size(809, 394);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button_imageLoad);
             this.Controls.Add(this.pictureBox);
-            this.Controls.Add(this.button_suche);
-            this.Controls.Add(this.button_Speichern);
+            this.Controls.Add(this.button_delete);
+            this.Controls.Add(this.button_add);
             this.Controls.Add(this.tb_Mail);
             this.Controls.Add(this.tb_Telefon);
             this.Controls.Add(this.lBild);
@@ -245,10 +256,11 @@
         private System.Windows.Forms.Label lBild;
         private System.Windows.Forms.TextBox tb_Telefon;
         private System.Windows.Forms.TextBox tb_Mail;
-        private System.Windows.Forms.Button button_Speichern;
-        private System.Windows.Forms.Button button_suche;
+        private System.Windows.Forms.Button button_add;
+        private System.Windows.Forms.Button button_delete;
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Button button_imageLoad;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 
