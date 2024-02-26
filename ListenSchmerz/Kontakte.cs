@@ -22,9 +22,6 @@ namespace ListenSchmerz
         {
 
         }
-        /*****
-         * Ab hier ignorieren
-         */
 
         private void lName_Click(object sender, EventArgs e)
         {
@@ -54,6 +51,7 @@ namespace ListenSchmerz
         private void button1_Click(object sender, EventArgs e)
         {
             //Contact save button
+            MessageBox.Show(new NotImplementedException().ToString(), "Error", MessageBoxButtons.OK);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -72,8 +70,8 @@ namespace ListenSchmerz
             try {
                 pictureBox.Image = Image.FromFile(filePath);
             }
-            catch (ArgumentException)
-            {
+            catch (ArgumentException) {
+                
                 MessageBox.Show("Es wurde keine Datei angegeben!", "Error", MessageBoxButtons.OK);
             }
         }
@@ -81,6 +79,7 @@ namespace ListenSchmerz
         private void button3_Click(object sender, EventArgs e)
         {
             //Data search button
+            MessageBox.Show(new NotImplementedException().ToString(), "Error", MessageBoxButtons.OK);
         }
     }
 }

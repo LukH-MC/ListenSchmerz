@@ -39,7 +39,6 @@ namespace ListenSchmerz
         public ToDo(bool darkMode)
         {
             InitializeComponent();
-            Console.WriteLine("Test");
             //Control DarkMode
             this.darkMode = darkMode;
             switch (darkMode)
@@ -57,7 +56,6 @@ namespace ListenSchmerz
                     this.nud_Prio.BackColor = System.Drawing.Color.Gainsboro;
                     this.lt_contacts.BackColor = System.Drawing.Color.Gainsboro;
                     this.tb_desc.BackColor = System.Drawing.Color.Gainsboro;
-                    Console.WriteLine("true");
                     break;
 
                 case false:
@@ -66,7 +64,6 @@ namespace ListenSchmerz
                     this.button_newToDo.BackColor = SystemColors.ControlLight;
                     this.button_selCont.BackColor = SystemColors.ControlLight;
                     this.BackColor= SystemColors.Control;
-                    Console.WriteLine("false");
                     break;
             }
         }
@@ -262,6 +259,7 @@ namespace ListenSchmerz
             this.button_newToDo.TabIndex = 17;
             this.button_newToDo.Text = "Neue TODO-Liste";
             this.button_newToDo.UseVisualStyleBackColor = true;
+            button_newToDo.Click += new System.EventHandler(this.button_newTodo);
             // 
             // button_newEntry
             // 
