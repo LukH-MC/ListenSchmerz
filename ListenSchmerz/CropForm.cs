@@ -11,8 +11,8 @@ namespace ListenSchmerz
         private Bitmap originalImage;
         private Rectangle initialSelection; // Initial rectangle
         private Point startPoint;
-        private bool selecting_;
         private bool draggingInitialSelection;
+        private float zoomFactor = 1.0f; // Zoom factor
 
         public CropForm(string imagePath)
         {
@@ -20,22 +20,10 @@ namespace ListenSchmerz
             // Load the original image
             originalImage = new Bitmap(imagePath);
 
-            // Initialize form components
-            Text = "Bild zuschneiden";
-            Size = new Size(1025, 600);
-
-            // Calculate the location to position the PictureBox in the center of the screen
-            int screenWidth = Screen.PrimaryScreen.WorkingArea.Width;
-            int screenHeight = Screen.PrimaryScreen.WorkingArea.Height;
-            int pictureBoxWidth = 1500; // Set the desired width of the PictureBox
-            int pictureBoxHeight = 1000; // Set the desired height of the PictureBox
-            int pictureBoxX = (screenWidth - pictureBoxWidth) / 2;
-            int pictureBoxY = (screenHeight - pictureBoxHeight) / 2;
 
             pictureBox = new PictureBox
             {
-                Location = new Point(pictureBoxX, pictureBoxY),
-                Size = new Size(pictureBoxWidth, pictureBoxHeight),
+                Dock = DockStyle.Fill,
                 Image = originalImage,
                 SizeMode = PictureBoxSizeMode.AutoSize,
                 TabStop = true,
@@ -45,7 +33,7 @@ namespace ListenSchmerz
             pictureBox.MouseMove += PictureBoxMouseMove;
             pictureBox.MouseUp += PictureBoxMouseUp;
             pictureBox.Paint += PictureBox_Paint; // Attach Paint event handler
-
+            pictureBox.MouseWheel += PictureBox_MouseWheel; // Attach MouseWheel event handler
 
             // Initialize initial selection rectangle
             int initialWidth = 156;
@@ -76,19 +64,12 @@ namespace ListenSchmerz
                 {
                     draggingInitialSelection = true;
                 }
-                else
-                {
-                    selecting_ = true;
-                }
             }
         }
 
         private void PictureBoxMouseMove(object sender, MouseEventArgs e)
         {
-            if (selecting_)
-            {
-            }
-            else if (draggingInitialSelection)
+            if (draggingInitialSelection)
             {
                 initialSelection.X = e.X - initialSelection.Width / 2;
                 initialSelection.Y = e.Y - initialSelection.Height / 2;
@@ -98,7 +79,6 @@ namespace ListenSchmerz
 
         private void PictureBoxMouseUp(object sender, MouseEventArgs e)
         {
-            selecting_ = false;
             draggingInitialSelection = false;
         }
 
@@ -126,15 +106,70 @@ namespace ListenSchmerz
             }
         }
 
-
         public Bitmap CroppedImage { get; private set; }
 
         private void PictureBox_Paint(object sender, PaintEventArgs e)
         {
+            // Zeichne das Bild
+            e.Graphics.DrawImage(originalImage, new Rectangle(0, 0, pictureBox.Width, pictureBox.Height));
+
+            // Zeichne das innere Rechteck
             using (Pen pen = new Pen(Color.Blue, 2))
             {
                 e.Graphics.DrawRectangle(pen, initialSelection);
             }
+
+            // Zeichne das äußere Rechteck
+            Rectangle outerRectangle = new Rectangle(0, 0, pictureBox.Width, pictureBox.Height);
+            using (Pen pen = new Pen(Color.FromArgb(128, Color.Black), 2)) // Transparente Farbe für das äußere Rechteck
+            {
+                e.Graphics.DrawRectangle(pen, outerRectangle);
+            }
+        }
+
+        private void PictureBox_MouseWheel(object sender, MouseEventArgs e)
+        {
+            int delta = e.Delta;
+            float zoomChange = delta > 0 ? 0.1f : -0.1f; // Änderung des Zoomfaktors
+            zoomFactor += zoomChange; // Zoomfaktor anpassen
+            zoomFactor = Math.Max(zoomFactor, 0.1f); // Sicherstellen, dass der Zoomfaktor innerhalb vernünftiger Grenzen bleibt
+
+            int newWidth = (int)(originalImage.Width * zoomFactor);
+            int newHeight = (int)(originalImage.Height * zoomFactor);
+
+            // Berechnen Sie den maximalen Ausschnitt, den Sie anzeigen können
+            int maxVisibleWidth = pictureBox.ClientSize.Width;
+            int maxVisibleHeight = pictureBox.ClientSize.Height;
+
+            // Wenn das Bild kleiner als die maximale sichtbare Größe ist, passen Sie die Größe entsprechend an
+            if (newWidth < maxVisibleWidth && newHeight < maxVisibleHeight)
+            {
+                pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
+                pictureBox.Image = ResizeImage(originalImage, newWidth, newHeight);
+            }
+            else
+            {
+                pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                pictureBox.Image = ResizeImage(originalImage, maxVisibleWidth, maxVisibleHeight);
+            }
+
+            // Den Bildausschnitt neu positionieren, um ihn zentriert zu halten
+            initialSelection.X = (pictureBox.Width - initialSelection.Width) / 2;
+            initialSelection.Y = (pictureBox.Height - initialSelection.Height) / 2;
+
+            pictureBox.Invalidate();
+        }
+
+        // Methode zum Ändern der Größe des Bildes
+        private Bitmap ResizeImage(Bitmap image, int width, int height)
+        {
+            Bitmap resizedImage = new Bitmap(width, height);
+            using (Graphics g = Graphics.FromImage(resizedImage))
+            {
+                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                g.DrawImage(image, 0, 0, width, height);
+            }
+            return resizedImage;
         }
 
     }

@@ -76,7 +76,6 @@ namespace ListenSchmerz
                     {
                         // Load the cropped image into PictureBox
                         pictureBox.Image = cropForm.CroppedImage;
-                        pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
                     }
                 }
             }

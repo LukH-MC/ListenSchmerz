@@ -1,4 +1,6 @@
-﻿namespace ListenSchmerz
+﻿using System.Windows.Forms;
+
+namespace ListenSchmerz
 {
     partial class CropForm
     {
@@ -30,8 +32,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(400, 800);
             this.Text = "CropForm";
+            this.TopMost = true;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
         }
 
         #endregion
