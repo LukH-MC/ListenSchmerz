@@ -36,6 +36,20 @@ namespace ListenSchmerz
         private DateTimePickerWithBackColor.BCDateTimePicker dtp_Start;
         private Label lTitle;
 
+        public int GetIndexTodo()
+        {
+            string con = "Server=127.0.0.1;Database=listen;User ID=root;";
+            MySqlConnection connection = new MySqlConnection(con);
+            connection.Open();
+            Console.WriteLine("DB Verbunden!");
+
+            String insertSQL = "SELECT * FROM todo;";
+            MySqlCommand cmd = new MySqlCommand(insertSQL, connection);
+            int numrows = Convert.ToInt32(cmd.ExecuteScalar());
+
+            return numrows;
+        }
+
 
         public ToDo(bool darkMode)
         {
@@ -325,19 +339,24 @@ namespace ListenSchmerz
         
         private void newToDo_click(object sender, EventArgs e)
         {
-            //TODO: Database insert
             string con = "Server=127.0.0.1;Database=listen;User ID=root;";
             MySqlConnection connection = new MySqlConnection(con);
+            int numrows = GetIndexTodo()+1;
             try
             {
                 connection.Open();
                 Console.WriteLine("DB Verbunden!");
-                //DER ANGEZEIGTE FEHLER IST KEIN FEHLER
-                string insertsql = "INSERT INTO todo VALUES ('" + this.tb_Title.Text + "', '" + this.tb_desc.Text + "');";
-                MySqlCommand insertCMD = new MySqlCommand(insertsql, connection);
-                Console.WriteLine(tb_Title.Text + " ; " + tb_desc.Text);
-                insertCMD.ExecuteNonQuery();
-
+                string insertsql = "INSERT INTO todo VALUES (@TodoID, @Title, @Start, @End, @Prio, @Kontakte, @Beschreibung, @Liste);";
+                MySqlCommand cmd = new MySqlCommand(insertsql, connection);
+                cmd.Parameters.AddWithValue("@TodoID", numrows+1);
+                cmd.Parameters.AddWithValue("@Title", this.tb_Title.Text);
+                cmd.Parameters.AddWithValue("@Start", this.dtp_Start.Text);
+                cmd.Parameters.AddWithValue("@End", this.dtp_End.Text);
+                cmd.Parameters.AddWithValue("@Prio", this.nud_Prio.Text);
+                cmd.Parameters.AddWithValue("@Kontakte", "platzhalter");
+                cmd.Parameters.AddWithValue("@Beschreibung", this.tb_desc.Text);
+                cmd.Parameters.AddWithValue("@Liste", 33); //platzhalter
+                cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
