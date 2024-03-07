@@ -68,15 +68,9 @@ namespace ListenSchmerz
             {
                 //Get the path of specified file
                 filePath = openFileDialog.FileName;
-
-                // Create and show the cropping form
-                using (CropForm cropForm = new CropForm(filePath))
                 {
-                    if (cropForm.ShowDialog() == DialogResult.OK)
-                    {
                         // Load the cropped image into PictureBox
-                        pictureBox.Image = cropForm.CroppedImage;
-                    }
+                        pictureBox.Image = CropImage(filePath);
                 }
             }
             else
@@ -85,9 +79,15 @@ namespace ListenSchmerz
             }
         }
 
+        Image CropImage(string filePatch)
+        {
+
+            return false;
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
-            //Data delete button
+            //Contact delete button
             MessageBox.Show(new NotImplementedException().ToString(), "Error", MessageBoxButtons.OK);
         }
     }

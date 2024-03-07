@@ -68,15 +68,15 @@
     <Compile Include="Kontakte.Designer.cs">
       <DependentUpon>Kontakte.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyDateTimePicker.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ToDo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ToDo.Designer.cs" />
+    <EmbeddedResource Include="CropForm.resx">
+      <DependentUpon>CropForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
