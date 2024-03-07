@@ -34,6 +34,10 @@ namespace ListenSchmerz
         private DateTimePickerWithBackColor.BCDateTimePicker dtp_Start;
         private Label lTitle;
 
+        /*
+         * CALLBACK METHODS
+         */
+        
         public int GetIndexTodo()
         {
             string con = "Server=127.0.0.1;Database=listen;User ID=root;";
@@ -41,7 +45,7 @@ namespace ListenSchmerz
             connection.Open();
             Console.WriteLine("DB Verbunden!");
 
-            String insertSQL = "SELECT * FROM todo;";
+            String insertSQL = "SELECT COUNT(*) FROM todo;";
             MySqlCommand cmd = new MySqlCommand(insertSQL, connection);
             int numrows = Convert.ToInt32(cmd.ExecuteScalar());
 
@@ -250,7 +254,7 @@ namespace ListenSchmerz
             this.button_newToDo.TabIndex = 17;
             this.button_newToDo.Text = "Neue TODO-Liste";
             this.button_newToDo.UseVisualStyleBackColor = true;
-            this.button_newToDo.Click += new EventHandler(this.newToDo_click);
+            this.button_newToDo.Click += new EventHandler(this.newEntry_click);
             // 
             // button_newEntry
             // 
@@ -260,7 +264,7 @@ namespace ListenSchmerz
             this.button_newEntry.TabIndex = 18;
             this.button_newEntry.Text = "Neuer Eintrag";
             this.button_newEntry.UseVisualStyleBackColor = true;
-            this.button_newToDo.Click += new EventHandler(this.newEntry_click);
+            this.button_newEntry.Click += new EventHandler(this.newToDo_click);
             // 
             // button_delete
             // 
@@ -311,12 +315,6 @@ namespace ListenSchmerz
             this.PerformLayout();
 
         }
-        /*************
-         *
-         * newEntry_click() und newTodo_click() sind falschrum
-         * 
-         */
-        
         
         private void newEntry_click(object sender, EventArgs e)
         {
@@ -337,6 +335,7 @@ namespace ListenSchmerz
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
+                MessageBox.Show("Es ist ein Fehler aufgetreten! \nZu Risiken und Nebenwirkungen, lesen sie die Packungsbeilage, oder fragen sie Lukas oder ChatGPT.", "Fehler", MessageBoxButtons.OK);
             }
 
             connection.Close();
@@ -347,16 +346,23 @@ namespace ListenSchmerz
             string con = "Server=127.0.0.1;Database=listen;User ID=root;";
             MySqlConnection connection = new MySqlConnection(con);
             int numrows = GetIndexTodo()+1;
+            
+            //Formatierung von Datum, weil Winforms dumm ist und ein schlechtes datumsformat verwendet (MM-DD-YYYY)
+            DateTime startDat = this.dtp_Start.Value;
+            string fStartDat = startDat.ToString("yyyy-MM-dd");
+            DateTime endDat = this.dtp_End.Value;
+            string fEndDat = endDat.ToString("yyyy-MM-dd");
+            
             try
             {
                 connection.Open();
                 Console.WriteLine("DB Verbunden!");
                 string insertsql = "INSERT INTO todo VALUES (@TodoID, @Title, @Start, @End, @Prio, @Kontakte, @Beschreibung, @Liste, @Erledigt);";
                 MySqlCommand cmd = new MySqlCommand(insertsql, connection);
-                cmd.Parameters.AddWithValue("@TodoID", numrows+1);
+                cmd.Parameters.AddWithValue("@TodoID", numrows);
                 cmd.Parameters.AddWithValue("@Title", this.tb_Title.Text);
-                cmd.Parameters.AddWithValue("@Start", this.dtp_Start.Text);
-                cmd.Parameters.AddWithValue("@End", this.dtp_End.Text);
+                cmd.Parameters.AddWithValue("@Start", fStartDat);
+                cmd.Parameters.AddWithValue("@End", fEndDat);
                 cmd.Parameters.AddWithValue("@Prio", this.nud_Prio.Text);
                 cmd.Parameters.AddWithValue("@Kontakte", "platzhalter");
                 cmd.Parameters.AddWithValue("@Beschreibung", this.tb_desc.Text);
@@ -367,6 +373,7 @@ namespace ListenSchmerz
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
+                MessageBox.Show("Es ist ein Fehler aufgetreten! \nZu Risiken und Nebenwirkungen, lesen sie die Packungsbeilage, oder fragen sie Lukas oder ChatGPT.", "Fehler", MessageBoxButtons.OK);
             }
             connection.Close();
         }
