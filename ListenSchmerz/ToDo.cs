@@ -1,14 +1,12 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Serialization;
+// ReSharper disable VirtualMemberCallInConstructor
+// ReSharper disable LocalizableElement
+// ReSharper disable RedundantDelegateCreation
+// ReSharper disable RedundantCast
+
 // ReSharper disable RedundantNameQualifier
 // ReSharper disable InconsistentNaming
 
@@ -313,6 +311,13 @@ namespace ListenSchmerz
             this.PerformLayout();
 
         }
+        /*************
+         *
+         * newEntry_click() und newTodo_click() sind falschrum
+         * 
+         */
+        
+        
         private void newEntry_click(object sender, EventArgs e)
         {
             //TODO: Database insert
@@ -346,7 +351,7 @@ namespace ListenSchmerz
             {
                 connection.Open();
                 Console.WriteLine("DB Verbunden!");
-                string insertsql = "INSERT INTO todo VALUES (@TodoID, @Title, @Start, @End, @Prio, @Kontakte, @Beschreibung, @Liste);";
+                string insertsql = "INSERT INTO todo VALUES (@TodoID, @Title, @Start, @End, @Prio, @Kontakte, @Beschreibung, @Liste, @Erledigt);";
                 MySqlCommand cmd = new MySqlCommand(insertsql, connection);
                 cmd.Parameters.AddWithValue("@TodoID", numrows+1);
                 cmd.Parameters.AddWithValue("@Title", this.tb_Title.Text);
@@ -356,13 +361,13 @@ namespace ListenSchmerz
                 cmd.Parameters.AddWithValue("@Kontakte", "platzhalter");
                 cmd.Parameters.AddWithValue("@Beschreibung", this.tb_desc.Text);
                 cmd.Parameters.AddWithValue("@Liste", 33); //platzhalter
+                cmd.Parameters.AddWithValue("@Erledigt", 0);
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
-
             connection.Close();
         }
 
